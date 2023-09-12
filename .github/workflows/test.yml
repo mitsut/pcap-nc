@@ -4,7 +4,7 @@ on:
   push:
 
 jobs:
-  build:
+  build_and_test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -26,3 +26,10 @@ jobs:
           make clean
           cd ../test/
           ./test-all.sh
+
+      - name: Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: output
+          path: |
+            test/outdir/
