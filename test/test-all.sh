@@ -6,7 +6,7 @@ function do_test(){
   diff $2 $3
   if [ $? -ne 0 ]; then  
     echo test failed
-    exit
+    exit $?
   fi
   rm -f $3
 }
@@ -18,14 +18,14 @@ echo ./test-pcap-replay-options.sh
 ./test-pcap-replay-options.sh
 if [ $? -ne 0 ]; then  
   echo test failed
-  exit
+  exit $?
 fi
 
 echo ./test-pcap-rmap-target-options.sh
 ./test-pcap-rmap-target-options.sh
 if [ $? -ne 0 ]; then  
   echo test failed
-  exit
+  exit $?
 fi
 
 
